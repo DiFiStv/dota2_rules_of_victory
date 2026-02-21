@@ -27,14 +27,14 @@ async function loadRules() {
 }
 
 function createRuleBlock(text, imageFile) {
-    const div = document.createElement('div');
+    const div = document.createElement('section');
     div.className = 'rule';
 
     const img = document.createElement('img');
     img.src = `img/${imageFile}`;
-    img.onerror = () => img.remove(); // если картинки нет — убираем
 
     const content = document.createElement('div');
+    content.className = 'rule-content';
 
     const lines = text.split('\n').filter(l => l.trim() !== '');
     const title = document.createElement('h2');
@@ -59,4 +59,22 @@ function createRuleBlock(text, imageFile) {
     return div;
 }
 
+function initScrollPresentation() {
+    const rules = document.querySelectorAll('.rule');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                rules.forEach(r => r.classList.remove('active'));
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.6
+    });
+
+    rules.forEach(rule => observer.observe(rule));
+}
+
 loadRules();
+initScrollPresentation();
