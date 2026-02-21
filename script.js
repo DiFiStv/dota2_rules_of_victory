@@ -18,9 +18,12 @@ async function loadRules() {
                 container.appendChild(block);
 
             } catch {
-                continue; // если нет файла — пропускаем
+                continue;
             }
         }
+
+        initScrollPresentation();
+
     } catch (error) {
         console.error('Ошибка загрузки data.ezg');
     }
