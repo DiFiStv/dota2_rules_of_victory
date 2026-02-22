@@ -1,3 +1,22 @@
+// Инициализация анимации появления блоков
+function initScrollPresentation() {
+    const rules = document.querySelectorAll('.rule');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    rules.forEach(rule => observer.observe(rule));
+}
+
 async function loadRules() {
     try {
         const response = await fetch('data.ezg');
@@ -22,7 +41,7 @@ async function loadRules() {
             }
         }
 
-        initScrollPresentation();
+        initScrollPresentation(); // Инициализация анимации
 
     } catch (error) {
         console.error('Ошибка загрузки data.ezg');
@@ -62,21 +81,4 @@ function createRuleBlock(text, imageFile) {
     return div;
 }
 
-function initScrollPresentation() {
-    const rules = document.querySelectorAll('.rule');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                rules.forEach(r => r.classList.remove('active'));
-                entry.target.classList.add('active');
-            }
-        });
-    }, {
-        threshold: 0.6
-    });
-
-    rules.forEach(rule => observer.observe(rule));
-}
-
-loadRules();
+loadRules();  // Запуск загрузки правил
