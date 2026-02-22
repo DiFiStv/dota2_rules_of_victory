@@ -28,12 +28,7 @@ body {
 }
 
 .rule {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-
-    width: 100%;
-    
+    display: grid;
     background: linear-gradient(145deg, #14161d, #1a1d25);
     border-radius: 20px;
     grid-template-columns: 20% 80%; /* 2 части: 20% для картинки, 80% для текста */
@@ -42,7 +37,7 @@ body {
     padding: 0 5%; /* Отступы по бокам */
     overflow: hidden;
     opacity: 0;
-    transform: translateY(40px);
+    transform: scale(0.95);
     transition: all 0.8s ease;
 }
 
@@ -117,4 +112,3 @@ footer {
     color: white;
 
 }
-
