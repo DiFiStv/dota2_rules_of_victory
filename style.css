@@ -1,4 +1,14 @@
 /* Header (весь экран, с картинками и текстом) */
+body {
+    background: #0f1117;
+}
+
+#rules-container {
+    background: #14161d;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
 .hero {
     position: relative;
     height: 100vh;
@@ -6,6 +16,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, #14161d);
 }
 
 .rule {
@@ -22,17 +41,23 @@
     transition: all 0.8s ease;
 }
 
+.rule ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
 .rule li {
     position: relative;
-    padding-left: 25px;
-    margin-bottom: 8px;
+    padding-left: 28px;
+    margin-bottom: 10px;
 }
 
 .rule li::before {
-    content: "+";
+    content: "✔";
     position: absolute;
     left: 0;
-    color: #ff4747;
+    color: #4CAF50;
     font-weight: bold;
 }
 
@@ -69,12 +94,6 @@
     margin-bottom: 20px;
 }
 
-.rule ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
 /* Заголовок блока (правила) */
 .hero h1 {
     position: absolute;
@@ -93,5 +112,3 @@ footer {
     color: white;
 
 }
-
-
