@@ -74,7 +74,7 @@ function createRuleBlock(text, imageFile) {
     lines.slice(1).forEach(line => {
         if (line.trim().startsWith('+')) {
             const li = document.createElement('li');
-            li.textContent = line.replace('+', '').replace(';','').trim();
+            // li.textContent = line.replace('+', '').replace(';','').trim();
             ul.appendChild(li);
         }
     });
@@ -88,5 +88,6 @@ function createRuleBlock(text, imageFile) {
 
     return div;
 }
+
 
 loadRules();  // Запуск загрузки правил
