@@ -52,11 +52,18 @@ function createRuleBlock(text, imageFile) {
     const div = document.createElement('section');
     div.className = 'rule';
 
+    // Блок с картинкой (20% ширины)
+    const imgContainer = document.createElement('div');
+    imgContainer.style.gridColumn = '1 / 2'; // 1 колонка для картинки (20%)
+
     const img = document.createElement('img');
     img.src = `img/${imageFile}`;
+    imgContainer.appendChild(img);
 
+    // Блок с текстом (80% ширины)
     const content = document.createElement('div');
     content.className = 'rule-content';
+    content.style.gridColumn = '2 / 3'; // 2 колонка для текста (80%)
 
     const lines = text.split('\n').filter(l => l.trim() !== '');
     const title = document.createElement('h2');
@@ -75,7 +82,8 @@ function createRuleBlock(text, imageFile) {
     content.appendChild(title);
     content.appendChild(ul);
 
-    div.appendChild(img);
+    // Добавляем картинку и текстовый блок в общий контейнер
+    div.appendChild(imgContainer);
     div.appendChild(content);
 
     return div;
