@@ -45,26 +45,6 @@ body {
     transition: all 0.8s ease;
 }
 
-.rule ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.rule li {
-    position: relative;
-    padding-left: 28px;
-    margin-bottom: 10px;
-}
-
-.rule li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
 /* Анимация появления */
 .rule.active {
     opacity: 1;
@@ -119,4 +99,5 @@ footer {
     color: white;
 
 }
+
 
