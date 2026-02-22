@@ -1,0 +1,75 @@
+/* Header (весь экран, с картинками и текстом) */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('img/header.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rule {
+    display: grid;
+    grid-template-columns: 20% 80%; /* 2 части: 20% для картинки, 80% для текста */
+    height: 20vw; /* Высота блока — зависит от 20% ширины */
+    margin-bottom: 40px;
+    padding: 0 5%; /* Отступы по бокам */
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease;
+}
+
+/* Анимация появления */
+.rule.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Картинка — она будет растягиваться по мере зума */
+.rule img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка будет заполнять блок без искажения */
+    transition: transform 0.6s ease;
+}
+
+/* Зум картинки при появлении */
+.rule.active img {
+    transform: scale(1.1); /* Зум картинки */
+}
+
+/* Текстовый блок */
+.rule-content {
+    padding: 20px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.rule h2 {
+    margin: 0 0 10px 0;
+    color: #ff4747; /* Цвет заголовка */
+}
+
+.rule ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+/* Заголовок блока (правила) */
+.hero h1 {
+    position: absolute;
+    font-size: 48px;
+    color: white;
+    z-index: 1;
+}
+
+/* Footer (внизу) */
+footer {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+    color: white;
+}
