@@ -45,6 +45,44 @@ body {
     transition: all 0.8s ease;
 }
 
+.rule ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.rule li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* + Галочка */
+.rule li.good::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* - Крестик */
+.rule li.bad::before {
+    content: "✖";
+    position: absolute;
+    left: 0;
+    color: #ff4747;
+    font-weight: bold;
+}
+
+/* * Информация */
+.rule li.info::before {
+    content: "🛈";
+    position: absolute;
+    left: 0;
+}
+
 /* Анимация появления */
 .rule.active {
     opacity: 1;
@@ -99,5 +137,6 @@ footer {
     color: white;
 
 }
+
 
 
