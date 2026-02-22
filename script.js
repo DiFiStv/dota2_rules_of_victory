@@ -72,12 +72,29 @@ function createRuleBlock(text, imageFile) {
     const ul = document.createElement('ul');
 
     lines.slice(1).forEach(line => {
-        if (line.trim().startsWith('+')) {
-            const li = document.createElement('li');
-            li.textContent = line.replace(/\+/g, '').trim();
-            ul.appendChild(li);
-        }
-    });
+    const trimmed = line.trim();
+    if (!trimmed) return;
+
+    const li = document.createElement('li');
+
+    if (trimmed.startsWith('+')) {
+        li.classList.add('good');
+        li.textContent = trimmed.substring(1).trim();
+    } 
+    else if (trimmed.startsWith('-')) {
+        li.classList.add('bad');
+        li.textContent = trimmed.substring(1).trim();
+    } 
+    else if (trimmed.startsWith('*')) {
+        li.classList.add('info');
+        li.textContent = trimmed.substring(1).trim();
+    } 
+    else {
+        return;
+    }
+
+    ul.appendChild(li);
+});
 
     content.appendChild(title);
     content.appendChild(ul);
@@ -91,4 +108,5 @@ function createRuleBlock(text, imageFile) {
 
 
 loadRules();  // Запуск загрузки правил
+
 
