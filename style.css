@@ -48,6 +48,7 @@
     height: 100%;
     object-fit: cover; /* Картинка будет заполнять блок без искажения */
     transition: transform 0.6s ease;
+    filter: drop-shadow(0 0 20px rgba(255, 70, 70, 0.3));
 }
 
 /* Зум картинки при появлении */
@@ -63,8 +64,9 @@
 }
 
 .rule h2 {
-    margin: 0 0 10px 0;
-    color: #ff4747; /* Цвет заголовка */
+    color: #ff4747;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
 .rule ul {
@@ -91,4 +93,5 @@ footer {
     color: white;
 
 }
+
 
