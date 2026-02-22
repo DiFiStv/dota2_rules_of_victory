@@ -10,6 +10,8 @@
 
 .rule {
     display: grid;
+    background: linear-gradient(145deg, #14161d, #1a1d25);
+    border-radius: 20px;
     grid-template-columns: 20% 80%; /* 2 части: 20% для картинки, 80% для текста */
     height: 20vw; /* Высота блока — зависит от 20% ширины */
     margin-bottom: 40px;
@@ -89,3 +91,4 @@ footer {
     color: white;
 
 }
+
